@@ -1,0 +1,14 @@
+{
+  // suppresses warnings about the use of global strict mode
+  "globalstrict": "false",
+  "strict": "true",
+  "node": "true",
+  "mocha": "true",
+  "jasmine": "true",
+  "phantom": "true",
+  // define globals
+  "predef": [
+  	"angular",
+  	"inject"
+  ]
+}

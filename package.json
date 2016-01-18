@@ -1,0 +1,36 @@
+{
+  "name": "base-angular-jfc",
+  "version": "0.1.0",
+  "description": "Base code for my AngularJS Projects",
+  "main": "index.js",
+  "scripts": {
+    "test": "node_modules/karma/bin/karma start",
+    "start": "http-server -a localhost -p 8080"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/jfcorreas/base-angular-jfc.git"
+  },
+  "author": "@jfcorreas",
+  "license": "MIT",
+  "bugs": {
+    "url": "https://github.com/jfcorreas/base-angular-jfc/issues"
+  },
+  "homepage": "https://github.com/jfcorreas/base-angular-jfc#readme",
+  "devDependencies": {
+    "angular-mocks": "^1.4.8",
+    "chai": "^3.4.1",
+    "karma": "^0.13.19",
+    "karma-chai": "^0.1.0",
+    "karma-coverage": "^0.5.3",
+    "karma-jshint-preprocessor": "0.0.6",
+    "karma-mocha": "^0.2.1",
+    "karma-phantomjs-launcher": "^0.2.3",
+    "mocha": "^2.3.4",
+    "phantomjs": "^1.9.19"
+  },
+  "dependencies": {
+    "angular": "^1.4.8",
+    "bower": "^1.7.2"
+  }
+}
