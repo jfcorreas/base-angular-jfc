@@ -19,11 +19,15 @@
 
     angular
         .module('baseAngular')
-        .controller('MainController', [MainController]);
+        .controller('MainController', ['$translate', MainController]);
 
-    function MainController() {
+    function MainController($translate) {
         var vm = this;
 
-        vm.todo = true;
+        vm.changeLanguage = changeLanguage;
+
+        function changeLanguage(langKey) {
+          $translate.use(langKey);
+        }
     }
 })();

@@ -5,10 +5,23 @@ describe('Main Controller', function () {
 
   beforeEach(module('baseAngular'));
 
-  describe('First Test', function() {
-  	it('Should be TODO', inject(function($controller) {
+  describe('MainController', function() {
+  	it('Should exist', inject(function($controller) {
   		var mainController = $controller('MainController');
-		  mainController.todo.should.be.true;
+		  mainController.should.exist;
   	}));
+  });
+
+  describe('Change Language', function() {
+    it('Should exist', inject(function($controller) {
+      var mainController = $controller('MainController');
+      mainController.changeLanguage.should.exist;
+    }));
+    it('Should change the language', inject(function($controller) {
+      var mainController = $controller('MainController');
+
+      mainController.changeLanguage('es');
+      // TODO $translate.proposedLanguage().should.equal('es');
+    }));
   });
 });

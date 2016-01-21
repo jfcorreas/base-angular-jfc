@@ -1,0 +1,34 @@
+<!doctype html>
+<html lang="en" ng-app="baseAngular">
+<head>
+  <meta charset="utf-8">
+  <title translate>{{ 'TITLE' }}</title>
+  <link href='http://fonts.googleapis.com/css?family=Shadows+Into+Light' rel='stylesheet' type='text/css'>
+  <link href='http://fonts.googleapis.com/css?family=Lato:300' rel='stylesheet' type='text/css'>
+  <link rel="stylesheet" href="css/app.css">
+  <script src="../node_modules/angular/angular.min.js"></script>
+  <script src="../bower_components/angular-translate/angular-translate.min.js"></script>
+  <script src="js/app.module.js"></script>
+  <script src="js/main.controller.js"></script>
+</head>
+<body>
+<div class="container" ng-controller='MainController as main'>
+  <div class="header">
+      <h3 translate>{{ 'TITLE' }}</h3>
+  </div>
+  <div class="navigation">
+    <ul>
+      <li><button ng-click="main.changeLanguage('es')" translate>{{ 'SPANISH' }}</button></li>
+      <li><button ng-click="main.changeLanguage('en')" translate>{{ 'ENGLISH' }}</button></li>
+    </ul>
+  </div>
+	<div class="content" >
+    TODO
+  </div>
+  <div class="footer">
+      TODO
+  </div>
+</div>
+
+</body>
+</html>
