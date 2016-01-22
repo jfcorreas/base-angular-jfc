@@ -25,9 +25,14 @@
         var vm = this;
 
         vm.changeLanguage = changeLanguage;
+        vm.getCurrentLanguage = getCurrentLanguage;
 
         function changeLanguage(langKey) {
           $translate.use(langKey);
+        }
+
+        function getCurrentLanguage() {
+          return $translate.use();
         }
     }
 })();

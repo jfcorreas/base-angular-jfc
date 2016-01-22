@@ -19,9 +19,9 @@ describe('Main Controller', function () {
     }));
     it('Should change the language', inject(function($controller) {
       var mainController = $controller('MainController');
-
+      mainController.getCurrentLanguage().should.equal('en');
       mainController.changeLanguage('es');
-      // TODO $translate.proposedLanguage().should.equal('es');
+      mainController.getCurrentLanguage().should.equal('es');
     }));
   });
 });
