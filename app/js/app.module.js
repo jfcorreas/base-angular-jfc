@@ -26,10 +26,11 @@
  };
 
 angular
-  .module('baseAngular', ['pascalprecht.translate'])
+  .module('baseAngular', ['ngSanitize','pascalprecht.translate'])
   .config(['$translateProvider', function ($translateProvider) {
     $translateProvider
       .translations('en', translationsEN)
       .translations('es', translationsES)
-      .preferredLanguage('en');
+      .preferredLanguage('en')
+      .useSanitizeValueStrategy('sanitize');
   }]);

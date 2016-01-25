@@ -17,3 +17,4 @@ npm install karma-jshint-preprocessor --save-dev
 
 npm install bower --save
 bower install angular-translate --save
+bower install angular-sanitize --save
