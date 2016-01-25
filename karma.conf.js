@@ -18,6 +18,7 @@ module.exports = function(config) {
       'node_modules/angular/angular.js',
       'node_modules/angular-mocks/angular-mocks.js',
       'bower_components/angular-translate/angular-translate.min.js',
+      'bower_components/angular-sanitize/angular-sanitize.min.js',
       'app/**/*.js'
     ],
 
