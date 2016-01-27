@@ -5,3 +5,4 @@ install:
   - npm install
   - bower install angular-translate
   - bower install angular-sanitize
+  - bower install angular-route

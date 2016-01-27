@@ -7,6 +7,7 @@
   <link href='http://fonts.googleapis.com/css?family=Lato:300' rel='stylesheet' type='text/css'>
   <link rel="stylesheet" href="app/css/app.css">
   <script src="node_modules/angular/angular.min.js"></script>
+  <script src="bower_components/angular-route/angular-route.min.js"></script>
   <script src="bower_components/angular-sanitize/angular-sanitize.min.js"></script>
   <script src="bower_components/angular-translate/angular-translate.min.js"></script>
   <script src="app/app.module.js"></script>
@@ -23,8 +24,8 @@
       <li><button ng-disabled="main.getCurrentLanguage()=='en'" ng-click="main.changeLanguage('en')" translate>{{ 'ENGLISH' }}</button></li>
     </ul>
   </div>
-	<div class="content" >
-    TODO
+  <div id="main">
+	     <div ng-view></div>
   </div>
   <div class="footer">
       TODO

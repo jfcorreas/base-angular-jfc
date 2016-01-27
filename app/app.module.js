@@ -26,7 +26,16 @@
  };
 
 angular
-  .module('baseAngular', ['ngSanitize','pascalprecht.translate'])
+  .module('baseAngular', ['ngRoute','ngSanitize','pascalprecht.translate'])
+  .config(['$routeProvider', function($routeProvider) {
+        $routeProvider
+
+            // route for the home page
+            .when('/', {
+                templateUrl : 'app/components/home/main.view.html',
+                controller  : 'MainController'
+            })
+      }])
   .config(['$translateProvider', function ($translateProvider) {
     $translateProvider
       .translations('en', translationsEN)
