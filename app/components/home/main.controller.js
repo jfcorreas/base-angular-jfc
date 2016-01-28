@@ -32,7 +32,7 @@
         }
 
         function getCurrentLanguage() {
-          return $translate.use();
+          return $translate.proposedLanguage();
         }
     }
 })();

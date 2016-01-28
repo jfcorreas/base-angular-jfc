@@ -9,28 +9,13 @@
  * Main module of the application.
  */
 
- var translationsEN = {
-   TITLE: 'Hello AngularJS',
-   HELLO: 'Hello',
-   SPANISH: 'Spanish',
-   ENGLISH: 'English',
-   MEMBERS: 'members'
- };
-
- var translationsES = {
-   TITLE: 'Hola AngularJS',
-   HELLO: 'Hola',
-   SPANISH: 'Español',
-   ENGLISH: 'Inglés',
-   MEMBERS: 'asistentes'
- };
-
 angular
   .module('baseAngular', ['ngRoute','ngSanitize','pascalprecht.translate'])
   .config(['$translateProvider', function ($translateProvider) {
-    $translateProvider
-      .translations('en', translationsEN)
-      .translations('es', translationsES)
-      .preferredLanguage('en')
+    $translateProvider.useStaticFilesLoader({
+      prefix: 'app/resources/locale-',
+      suffix: '.json'
+    })
+      .preferredLanguage('en_US')
       .useSanitizeValueStrategy('sanitize');
   }]);
