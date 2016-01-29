@@ -3,7 +3,4 @@ node_js:
   - '4.2.4'
 install:
   - npm install
-  - bower install angular-translate
-  - bower install angular-sanitize
-  - bower install angular-route
-  - bower install angular-translate-loader-static-files
+  - bower install

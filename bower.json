@@ -1,0 +1,26 @@
+{
+  "name": "base-angular-jfc",
+  "description": "Base code for my AngularJS Projects",
+  "main": "index.html",
+  "authors": [
+    "@jfcorreas"
+  ],
+  "license": "MIT",
+  "homepage": "https://github.com/jfcorreas/base-angular-jfc",
+  "moduleType": [
+    "node"
+  ],
+  "ignore": [
+    "**/.*",
+    "node_modules",
+    "bower_components",
+    "test",
+    "tests"
+  ],
+  "dependencies": {
+    "angular-route": "~1.4.9",
+    "angular-sanitize": "~1.4.9",
+    "angular-translate-loader-static-files": "~2.9.0",
+    "angular-translate": "^2.9.0"
+  }
+}

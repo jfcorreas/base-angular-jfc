@@ -31,6 +31,6 @@
   },
   "dependencies": {
     "angular": "^1.4.8",
-    "bower": "^1.7.2"
+    "bower": "^1.7.7"
   }
 }
