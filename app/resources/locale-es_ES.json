@@ -2,5 +2,6 @@
   "TITLE": "Base AngularJS",
   "HELLO": "Hola",
   "SPANISH": "Español",
-  "ENGLISH": "Inglés"
+  "ENGLISH": "Inglés",
+  "directives.language-select.Language": "Idioma"
 }

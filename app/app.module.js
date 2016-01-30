@@ -17,5 +17,13 @@ angular
       suffix: '.json'
     })
       .preferredLanguage('en_US')
-      .useSanitizeValueStrategy('sanitize');
-  }]);
+      .useSanitizeValueStrategy('sanitize')
+      .useMissingTranslationHandlerLog();
+  }])
+  .constant('LOCALES', {
+    'locales': {
+        'es_ES': 'Español',
+        'en_US': 'English'
+    },
+    'preferredLocale': 'en_US'
+});

@@ -11,21 +11,18 @@
   <script src="bower_components/angular-sanitize/angular-sanitize.min.js"></script>
   <script src="bower_components/angular-translate/angular-translate.min.js"></script>
   <script src="bower_components/angular-translate-loader-static-files/angular-translate-loader-static-files.min.js"></script>
+  <script src="bower_components/angular-translate-handler-log/angular-translate-handler-log.min.js"></script>
   <script src="app/app.module.js"></script>
   <script src="app/components/home/main.controller.js"></script>
   <script src="app/components/home/main.routes.js"></script>
+  <script src="app/components/home/baSetLanguage.directive.js"></script>
 </head>
 <body>
 <div class="container" ng-controller='MainController as main'>
   <div class="header">
       <h3 translate>{{ 'TITLE' }}</h3>
   </div>
-  <div class="navigation">
-    <ul>
-      <li><button ng-disabled="main.getCurrentLanguage()=='es_ES'" ng-click="main.changeLanguage('es_ES')" translate>{{ 'SPANISH' }}</button></li>
-      <li><button ng-disabled="main.getCurrentLanguage()=='en_US'" ng-click="main.changeLanguage('en_US')" translate>{{ 'ENGLISH' }}</button></li>
-    </ul>
-  </div>
+<ba-set-language></ba-set-language>
   <div id="main">
 	     <div ng-view></div>
   </div>
