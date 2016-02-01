@@ -1,7 +1,7 @@
 'use strict';
 /*jshint expr: true*/
 describe('Main Controller', function () {
-  var scope, createController;
+  //var scope, createController;
 
   beforeEach(module('baseAngular'));
 
