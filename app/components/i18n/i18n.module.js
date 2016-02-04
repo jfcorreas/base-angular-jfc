@@ -2,15 +2,15 @@
 
 /**
  * @ngdoc overview
- * @name baseAngular
+ * @name i18n
  * @description
- * # baseAngular
+ * # i18n
  *
- * Main module of the application.
+ * Internationalization module of the application
  */
 
 angular
-  .module('baseAngular', ['ngRoute','ngSanitize','pascalprecht.translate'])
+  .module('baseAngular.i18n', ['baseAngular.core','pascalprecht.translate'])
   .config(['$translateProvider', function ($translateProvider) {
     $translateProvider.useStaticFilesLoader({
       prefix: 'app/resources/locale-',

@@ -12,10 +12,12 @@
   <script src="bower_components/angular-translate/angular-translate.min.js"></script>
   <script src="bower_components/angular-translate-loader-static-files/angular-translate-loader-static-files.min.js"></script>
   <script src="bower_components/angular-translate-handler-log/angular-translate-handler-log.min.js"></script>
-  <script src="app/app.module.js"></script>
+  <script src="app/baseAngular.module.js"></script>
+  <script src="app/baseAngular.core.module.js"></script>
+  <script src="app/components/i18n/i18n.module.js"></script>
+  <script src="app/components/i18n/baSetLanguage.directive.js"></script>
   <script src="app/components/home/main.controller.js"></script>
   <script src="app/components/home/main.routes.js"></script>
-  <script src="app/components/home/baSetLanguage.directive.js"></script>
 </head>
 <body>
 <div class="container" ng-controller='MainController as main'>
