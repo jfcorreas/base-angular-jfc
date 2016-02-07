@@ -10,7 +10,7 @@ describe('Set Language directive', function () {
   }));
 
   function getCompiledElement(){
-    var element = angular.element('<ba-set-language></ba-set-language>');
+    var element = angular.element('<i18n-switch></i18n-switch>');
     var compiledElement = $compile(element)($rootScope);
     $rootScope.$digest();
 

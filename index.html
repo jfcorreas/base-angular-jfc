@@ -15,17 +15,17 @@
   <script src="app/baseAngular.module.js"></script>
   <script src="app/baseAngular.core.module.js"></script>
   <script src="app/components/home/main.controller.js"></script>
-  <script src="app/components/home/main.routes.js"></script>  
+  <script src="app/components/home/main.routes.js"></script>
   <script src="app/components/i18n/i18n.module.js"></script>
   <script src="app/components/i18n/i18n.controller.js"></script>
-  <script src="app/components/i18n/baSetLanguage.directive.js"></script>
+  <script src="app/components/i18n/i18nSwitch.directive.js"></script>
 </head>
 <body>
 <div class="container" ng-controller='MainController as main'>
   <div class="header">
       <h3 translate>{{ 'TITLE' }}</h3>
   </div>
-<ba-set-language></ba-set-language>
+<i18n-switch></i18n-switch>
   <div id="main">
 	     <div ng-view></div>
   </div>

@@ -3,9 +3,9 @@
 
     angular
         .module('baseAngular.i18n')
-        .directive('baSetLanguage', [baSetLanguage]);
+        .directive('i18nSwitch', [i18nSwitch]);
 
-    function baSetLanguage() {
+    function i18nSwitch() {
       var directive = {
           restrict: 'EA',
           template:   '' +
