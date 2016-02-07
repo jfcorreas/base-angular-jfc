@@ -2,7 +2,7 @@
     'use strict';
 
     angular
-        .module('baseAngular')
+        .module('baseAngular.i18n')
         .directive('baSetLanguage', [baSetLanguage]);
 
     function baSetLanguage() {
@@ -11,12 +11,12 @@
           template:   '' +
           '<div class="navigation">' +
               '<ul>' +
-                '<li><button ng-disabled="main.getCurrentLanguage()==\'es_ES\'" ng-click="main.changeLanguage(\'es_ES\')" translate>{{ \'SPANISH\' }}</button></li>' +
-                '<li><button ng-disabled="main.getCurrentLanguage()==\'en_US\'" ng-click="main.changeLanguage(\'en_US\')" translate>{{ \'ENGLISH\' }}</button></li>' +
+                '<li><button ng-disabled="i18n.getCurrentLanguage()==\'es_ES\'" ng-click="i18n.changeLanguage(\'es_ES\')" translate>{{ \'SPANISH\' }}</button></li>' +
+                '<li><button ng-disabled="i18n.getCurrentLanguage()==\'en_US\'" ng-click="i18n.changeLanguage(\'en_US\')" translate>{{ \'ENGLISH\' }}</button></li>' +
               '</ul>' +
             '</div>',
-          controller: 'MainController',
-          controllerAs: 'main',
+          controller: 'i18nController',
+          controllerAs: 'i18n',
           bindToController: true
       };
 

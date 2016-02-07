@@ -3,7 +3,7 @@
 describe('Set Language directive', function () {
   var $compile, $rootScope;
 
-  beforeEach(module('baseAngular'));
+  beforeEach(module('baseAngular.i18n'));
   beforeEach(inject(function(_$compile_, _$rootScope_) {
     $compile = _$compile_;
     $rootScope = _$rootScope_;
@@ -26,8 +26,8 @@ describe('Set Language directive', function () {
 	}));
 
 	it('Should disable current language button', inject(function($controller, $httpBackend) {
-		var mainController = $controller('MainController');
-    mainController.changeLanguage('es_ES');
+		var i18nController = $controller('i18nController');
+    i18nController.changeLanguage('es_ES');
 
     $httpBackend.whenGET(/\.json$/).respond('');
     var directiveElement = getCompiledElement();

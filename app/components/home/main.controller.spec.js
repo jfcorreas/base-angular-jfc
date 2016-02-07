@@ -11,17 +11,4 @@ describe('Main Controller', function () {
 		  mainController.should.exist;
   	}));
   });
-
-  describe('Change Language', function() {
-    it('Should exist', inject(function($controller) {
-      var mainController = $controller('MainController');
-      mainController.changeLanguage.should.exist;
-    }));
-    it('Should change the language', inject(function($controller) {
-      var mainController = $controller('MainController');
-      mainController.getCurrentLanguage().should.equal('en_US');
-      mainController.changeLanguage('es_ES');
-      mainController.getCurrentLanguage().should.equal('es_ES');
-    }));
-  });
 });
