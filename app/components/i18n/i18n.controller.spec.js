@@ -1,9 +1,8 @@
 'use strict';
 /*jshint expr: true*/
 describe('i18n Controller', function () {
-  //var scope, createController;
 
-  beforeEach(module('baseAngular'));
+  beforeEach(module('baseAngular.i18n'));
 
   describe('i18nController', function() {
   	it('Should exist', inject(function($controller) {
