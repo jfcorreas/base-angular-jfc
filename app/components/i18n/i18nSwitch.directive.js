@@ -9,9 +9,10 @@
       var directive = {
           restrict: 'EA',
           template:   '' +
-            '<select ng-model="i18n"'+
-               'ng-options="localesDisplayName for localesDisplayName in i18n.locales"'+
-               'ng-change="i18n.changeLanguage(localesDisplayName)">'+
+            '<select ng-model="i18n.currentLocale" '+
+               'ng-options="localesDisplayName for localesDisplayName in i18n.locales" '+
+               'ng-selected="i18n.currentLocale" '+
+               'ng-change="i18n.changeLanguage(i18n.currentLocale)">'+
             '</select>',
       /*      '<select>' +
                 '<option ng-disabled="i18n.getCurrentLanguage()==\'es_ES\'" ng-click="i18n.changeLanguage(\'es_ES\')" translate>{{ \'SPANISH\' }}</option>' +

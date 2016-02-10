@@ -1,6 +1,6 @@
 'use strict';
 /*jshint expr: true*/
-describe('Set Language directive', function () {
+describe('Switch Language directive', function () {
   var $compile, $rootScope;
 
   beforeEach(module('baseAngular.i18n'));
@@ -25,19 +25,18 @@ describe('Set Language directive', function () {
     expect(buttonElements.length).to.be.above(1);
 	}));
 
-	it('Should disable current language button', inject(function($controller, $httpBackend) {
+	it('Current language button should be selected', inject(function($controller, $httpBackend) {
 		var i18nController = $controller('i18nController');
     i18nController.changeLanguage('es_ES');
 
     $httpBackend.whenGET(/\.json$/).respond('');
     var directiveElement = getCompiledElement();
-    var buttonElements = directiveElement.find('option');
-    console.log(buttonElements);
-    for (var button=0; button < buttonElements.length; button++) {
-      if (buttonElements[button].innerHTML == 'SPANISH') {
-        expect(buttonElements[button].disabled).to.be.true;
+    var optionElements = directiveElement.find('option');
+    for (var option=0; option < optionElements.length; option++) {
+      if (optionElements[option].innerHTML == 'es_ES') {
+        expect(optionElements[option].selected).to.be.true;
       } else {
-        expect(buttonElements[button].disabled).to.be.false;
+        expect(optionElements[option].disabled).to.be.false;
       }
     }
 	}));
