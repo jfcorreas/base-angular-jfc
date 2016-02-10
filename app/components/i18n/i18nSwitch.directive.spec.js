@@ -21,7 +21,7 @@ describe('Set Language directive', function () {
 
     $httpBackend.whenGET(/\.json$/).respond('');
     var directiveElement = getCompiledElement();
-    var buttonElements = directiveElement.find('button');
+    var buttonElements = directiveElement.find('option');
     expect(buttonElements.length).to.be.above(1);
 	}));
 
@@ -31,8 +31,8 @@ describe('Set Language directive', function () {
 
     $httpBackend.whenGET(/\.json$/).respond('');
     var directiveElement = getCompiledElement();
-    var buttonElements = directiveElement.find('button');
-
+    var buttonElements = directiveElement.find('option');
+    console.log(buttonElements);
     for (var button=0; button < buttonElements.length; button++) {
       if (buttonElements[button].innerHTML == 'SPANISH') {
         expect(buttonElements[button].disabled).to.be.true;

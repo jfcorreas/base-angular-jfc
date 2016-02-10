@@ -9,12 +9,14 @@
       var directive = {
           restrict: 'EA',
           template:   '' +
-          '<div class="navigation">' +
-              '<ul>' +
-                '<li><button ng-disabled="i18n.getCurrentLanguage()==\'es_ES\'" ng-click="i18n.changeLanguage(\'es_ES\')" translate>{{ \'SPANISH\' }}</button></li>' +
-                '<li><button ng-disabled="i18n.getCurrentLanguage()==\'en_US\'" ng-click="i18n.changeLanguage(\'en_US\')" translate>{{ \'ENGLISH\' }}</button></li>' +
-              '</ul>' +
-            '</div>',
+            '<select ng-model="i18n"'+
+               'ng-options="localesDisplayName for localesDisplayName in i18n.locales"'+
+               'ng-change="i18n.changeLanguage(localesDisplayName)">'+
+            '</select>',
+      /*      '<select>' +
+                '<option ng-disabled="i18n.getCurrentLanguage()==\'es_ES\'" ng-click="i18n.changeLanguage(\'es_ES\')" translate>{{ \'SPANISH\' }}</option>' +
+                '<option ng-disabled="i18n.getCurrentLanguage()==\'en_US\'" ng-click="i18n.changeLanguage(\'en_US\')" translate>{{ \'ENGLISH\' }}</option>' +
+            '</select>',*/
           controller: 'i18nController',
           controllerAs: 'i18n',
           bindToController: true

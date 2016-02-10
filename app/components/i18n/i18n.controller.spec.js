@@ -1,26 +1,22 @@
 'use strict';
 /*jshint expr: true*/
 describe('i18n Controller', function () {
+  var i18nController;
 
   beforeEach(module('baseAngular.i18n'));
+  beforeEach(inject(function($controller){
+    i18nController = $controller('i18nController');
+  }));
 
-  describe('i18nController', function() {
-  	it('Should exist', inject(function($controller) {
-  		var i18nController = $controller('i18nController');
-		  i18nController.should.exist;
-  	}));
+	it('Should exist', function() {
+	  i18nController.should.exist;
+	});
+
+  it('Should provide configured locales', function() {
+    i18nController.locales.should.exist;
   });
 
-  describe('Change Language', function() {
-    it('Should exist', inject(function($controller) {
-      var i18nController = $controller('i18nController');
-      i18nController.changeLanguage.should.exist;
-    }));
-    it('Should change the language', inject(function($controller) {
-      var i18nController = $controller('i18nController');
-      i18nController.getCurrentLanguage().should.equal('en_US');
-      i18nController.changeLanguage('es_ES');
-      i18nController.getCurrentLanguage().should.equal('es_ES');
-    }));
+  it('Should provide change language funtion', function() {
+    i18nController.changeLanguage.should.exist;
   });
 });

@@ -1,26 +1,22 @@
 // i18n.controller.js
 
 (function() {
-  /*jshint validthis: true */
 
     'use strict';
 
     angular
         .module('baseAngular.i18n')
-        .controller('i18nController', ['$translate', i18nController]);
+        .controller('i18nController', ['i18nService', I18nController]);
 
-    function i18nController($translate) {
+    function I18nController(i18nService) {
         var vm = this;
 
+        vm.locales = i18nService.getLocales();
+        vm.currentLocale = i18nService.getCurrentLocale();
         vm.changeLanguage = changeLanguage;
-        vm.getCurrentLanguage = getCurrentLanguage;
 
         function changeLanguage(langKey) {
-          $translate.use(langKey);
-        }
-
-        function getCurrentLanguage() {
-          return $translate.proposedLanguage();
+          i18nService.changeLanguage(langKey);
         }
     }
 })();
