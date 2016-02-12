@@ -22,11 +22,16 @@ describe('i18n Service', function () {
 	});
 
   it('Should have configured locales', function() {
-    expect(i18nService.getLocales().length).to.be.above(1);
+    expect(i18nService.getLocales().length).to.be.equal(2);
+    i18nService.getLocales()[0].id.should.equal('es_ES');
+    i18nService.getLocales()[1].id.should.equal('en_US');
+    i18nService.getLocales()[0].display.should.equal('Español');
+    i18nService.getLocales()[1].display.should.equal('English');
   });
 
   it('Should expose current locale', function() {
-    i18nService.getCurrentLocale().should.equal('en_US');
+    i18nService.getCurrentLocale().id.should.equal('en_US');
+    i18nService.getCurrentLocale().display.should.equal('English');
   });
 
   describe('Change Language function', function() {
@@ -35,9 +40,9 @@ describe('i18n Service', function () {
     });
 
     it('Should change the language and mantain current locale', function() {
-      i18nService.getCurrentLocale().should.equal('en_US');
+      i18nService.getCurrentLocale().id.should.equal('en_US');
       i18nService.changeLanguage('es_ES');
-      i18nService.getCurrentLocale().should.equal('es_ES');
+      i18nService.getCurrentLocale().id.should.equal('es_ES');
     });
   });
 

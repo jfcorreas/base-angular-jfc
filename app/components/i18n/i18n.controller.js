@@ -13,10 +13,15 @@
 
         vm.locales = i18nService.getLocales();
         vm.currentLocale = i18nService.getCurrentLocale();
-        vm.changeLanguage = changeLanguage;
+        vm.changeLocale = changeLocale;
 
-        function changeLanguage(langKey) {
-          i18nService.changeLanguage(langKey);
+        function changeLocale(localeKey) {
+          if (localeKey) {
+            i18nService.changeLanguage(localeKey);
+            vm.currentLocale = i18nService.getCurrentLocale();
+          } else {
+            i18nService.changeLanguage(vm.currentLocale.id);
+          }
         }
     }
 })();

@@ -17,7 +17,7 @@ describe('Switch Language directive', function () {
     return compiledElement;
   }
 
-  it('Should show buttons to change language', inject(function($httpBackend) {
+  it('Should show options to change language', inject(function($httpBackend) {
 
     $httpBackend.whenGET(/\.json$/).respond('');
     var directiveElement = getCompiledElement();
@@ -25,15 +25,15 @@ describe('Switch Language directive', function () {
     expect(buttonElements.length).to.be.above(1);
 	}));
 
-	it('Current language button should be selected', inject(function($controller, $httpBackend) {
+	it('Current language option should be selected', inject(function($controller, $httpBackend) {
 		var i18nController = $controller('i18nController');
-    i18nController.changeLanguage('es_ES');
+    i18nController.changeLocale('es_ES');
 
     $httpBackend.whenGET(/\.json$/).respond('');
     var directiveElement = getCompiledElement();
     var optionElements = directiveElement.find('option');
     for (var option=0; option < optionElements.length; option++) {
-      if (optionElements[option].innerHTML == 'es_ES') {
+      if (optionElements[option].innerHTML == 'Español') {
         expect(optionElements[option].selected).to.be.true;
       } else {
         expect(optionElements[option].disabled).to.be.false;

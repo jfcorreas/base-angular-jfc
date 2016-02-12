@@ -16,7 +16,15 @@ describe('i18n Controller', function () {
     i18nController.locales.should.exist;
   });
 
-  it('Should provide change language funtion', function() {
-    i18nController.changeLanguage.should.exist;
+  it('Should provide current locale', function() {
+    i18nController.currentLocale.should.exist;
+  });
+
+  it('Should provide change locale funtion', function() {
+    i18nController.changeLocale.should.exist;
+    i18nController.changeLocale('en_US');
+    i18nController.currentLocale.id.should.be.equal('en_US');
+    i18nController.changeLocale('es_ES');
+    i18nController.currentLocale.id.should.be.equal('es_ES');
   });
 });

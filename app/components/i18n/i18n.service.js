@@ -26,11 +26,27 @@
       return service;
 
       function locales() {
-        return Object.keys(localesConfig);
+        var localesArray = [];
+        Object.keys(localesConfig).forEach(function(key){
+          var locale = {};
+          locale.id = key;
+          locale.display = localesConfig[key];
+          localesArray.push(locale);
+        });
+        return localesArray;
       }
 
       function currentLocale() {
-        return $translate.proposedLanguage();
+        var currentLocaleKey = $translate.proposedLanguage();
+        var locale = {};
+        Object.keys(localesConfig).some(function(key){
+          if (key == currentLocaleKey){
+            locale.id = key;
+            locale.display = localesConfig[key];
+            return true;
+          }
+        });
+        return locale;
       }
 
       function changeLanguage(langKey) {

@@ -1,7 +1,5 @@
 {
   "TITLE": "Base AngularJS",
-  "HELLO": "Hola",
-  "SPANISH": "Español",
-  "ENGLISH": "Inglés",
-  "directives.language-select.Language": "Idioma"
+  "CONTENT": "Contenido",
+  "i18nSwitch.label": "Idioma"
 }
