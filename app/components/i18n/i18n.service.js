@@ -10,6 +10,22 @@
 
     angular
         .module('baseAngular.i18n')
+        .constant('LOCALES', {
+          'locales': {
+              'es_ES': 'Español',
+              'en_US': 'English'
+          },
+          'preferredLocale': 'es_ES'
+        })
+        .config(['$translateProvider', 'LOCALES', function ($translateProvider, LOCALES) {
+          $translateProvider.useStaticFilesLoader({
+            prefix: 'app/resources/locale-',
+            suffix: '.json'
+          })
+            .preferredLanguage(LOCALES.preferredLocale)
+            .useSanitizeValueStrategy('sanitize')
+            .useMissingTranslationHandlerLog();
+        }])
         .factory('i18nService', ['$translate', 'LOCALES', I18nService]);
 
     function I18nService($translate, LOCALES) {

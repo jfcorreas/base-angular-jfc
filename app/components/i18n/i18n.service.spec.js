@@ -3,16 +3,15 @@
 describe('i18n Service', function () {
   var i18nService;
 
-  beforeEach(module('baseAngular.i18n'));
-  beforeEach(module(function($provide){
-    // TODO - inject mock LOCALES doesn't work. Test are using the global ones
-    $provide.value('LOCALES', {
+  beforeEach(module('baseAngular.i18n', function($provide, $translateProvider){
+    $provide.constant('LOCALES', {
       'locales': {
           'es_ES': 'Español',
           'en_US': 'English'
       },
       'preferredLocale': 'en_US'
     });
+    $translateProvider.preferredLanguage('en_US');
   }));
   beforeEach(inject(function(_i18nService_){
     i18nService = _i18nService_;
