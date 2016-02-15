@@ -23,5 +23,7 @@
 
     function MainController($translate) {
         var vm = this;
+
+        vm.today = new Date();
     }
 })();

@@ -17,22 +17,25 @@
           },
           'preferredLocale': 'es_ES'
         })
-        .config(['$translateProvider', 'LOCALES', function ($translateProvider, LOCALES) {
-          $translateProvider.useStaticFilesLoader({
-            prefix: 'app/resources/locale-',
-            suffix: '.json'
-          })
-            .preferredLanguage(LOCALES.preferredLocale)
-            .useSanitizeValueStrategy('sanitize')
-            .useMissingTranslationHandlerLog();
-        }])
-        .factory('i18nService', ['$translate', 'LOCALES', I18nService]);
+        .config(['$translateProvider', 'tmhDynamicLocaleProvider', 'LOCALES',
+          function ($translateProvider, tmhDynamicLocaleProvider, LOCALES) {
+            $translateProvider.useStaticFilesLoader({
+              prefix: 'app/resources/locale-',
+              suffix: '.json'
+            })
+              .preferredLanguage(LOCALES.preferredLocale)
+              .useSanitizeValueStrategy('sanitize')
+              .useMissingTranslationHandlerLog();
+            tmhDynamicLocaleProvider.localeLocationPattern("bower_components/angular-i18n/angular-locale_{{locale}}.js");
+          }])
+        .factory('i18nService', ['$translate', 'tmhDynamicLocale', 'LOCALES', I18nService]);
 
-    function I18nService($translate, LOCALES) {
+    function I18nService($translate, tmhDynamicLocale, LOCALES) {
       var localesConfig = LOCALES.locales;
       var preferredLocale = LOCALES.preferredLocale;
 
       changeLanguage(preferredLocale);
+      tmhDynamicLocale.set(preferredLocale.substring(0,preferredLocale.indexOf('_')));
 
       var service = {
         getLocales: locales,
@@ -67,6 +70,7 @@
 
       function changeLanguage(langKey) {
         $translate.use(langKey);
+        tmhDynamicLocale.set(langKey.substring(0, langKey.indexOf('_')));
       }
     }
 })();

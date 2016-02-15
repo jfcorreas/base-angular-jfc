@@ -17,6 +17,9 @@ module.exports = function(config) {
     files: [
       'node_modules/angular/angular.js',
       'node_modules/angular-mocks/angular-mocks.js',
+      'bower_components/angular-i18n/angular-locale_es.js',
+      'bower_components/angular-i18n/angular-locale_en.js',
+      'bower_components/angular-dynamic-locale/tmhDynamicLocale.min.js',
       'bower_components/angular-translate/angular-translate.min.js',
       'bower_components/angular-translate-loader-static-files/angular-translate-loader-static-files.min.js',
       'bower_components/angular-sanitize/angular-sanitize.min.js',

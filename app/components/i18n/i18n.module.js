@@ -10,4 +10,8 @@
  */
 
 angular
-  .module('baseAngular.i18n', ['baseAngular.core','pascalprecht.translate']);
+  .module('baseAngular.i18n', [
+    'baseAngular.core',
+    'pascalprecht.translate',
+    'tmh.dynamicLocale'
+  ]);

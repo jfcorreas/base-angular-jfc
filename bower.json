@@ -22,6 +22,8 @@
     "angular-sanitize": "~1.4.9",
     "angular-translate-loader-static-files": "~2.9.0",
     "angular-translate": "^2.9.0",
-    "angular-translate-handler-log": "^2.9.0"
+    "angular-translate-handler-log": "^2.9.0",
+    "angular-i18n": "^1.5.0",
+    "angular-dynamic-locale": "^0.1.30"
   }
 }
