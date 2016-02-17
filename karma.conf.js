@@ -7,6 +7,10 @@ module.exports = function(config) {
     // base path that will be used to resolve all patterns (eg. files, exclude)
     basePath: '',
 
+    proxies: {
+      '/bower_components/angular-i18n/': '/base/bower_components/angular-i18n/'
+    },
+
 
     // frameworks to use
     // available frameworks: https://npmjs.org/browse/keyword/karma-adapter
@@ -17,8 +21,7 @@ module.exports = function(config) {
     files: [
       'node_modules/angular/angular.js',
       'node_modules/angular-mocks/angular-mocks.js',
-      'bower_components/angular-i18n/angular-locale_es.js',
-      'bower_components/angular-i18n/angular-locale_en.js',
+      {pattern: 'bower_components/angular-i18n/angular-locale_*.js', watched: false, included:false, served:true },
       'bower_components/angular-dynamic-locale/tmhDynamicLocale.min.js',
       'bower_components/angular-translate/angular-translate.min.js',
       'bower_components/angular-translate-loader-static-files/angular-translate-loader-static-files.min.js',
