@@ -32,6 +32,7 @@ module.exports = function(config) {
       'app/**/*.routes.js',
       'app/**/*.service.js',
       'app/**/*.controller.js',
+      'app/**/*.template.html',
       'app/**/*.directive.js',
       'app/**/*.spec.js'
     ],
@@ -45,7 +46,8 @@ module.exports = function(config) {
     // preprocess matching files before serving them to the browser
     // available preprocessors: https://npmjs.org/browse/keyword/karma-preprocessor
     preprocessors: {
-       'app/**/*.js': ['jshint','coverage']
+       'app/**/*.js': ['jshint','coverage'],
+       'app/**/*.template.html': ['ng-html2js']
     },
 
 

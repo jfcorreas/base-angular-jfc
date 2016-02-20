@@ -3,8 +3,10 @@
 describe('Switch Language directive', function () {
   var $compile, $rootScope;
 
-  beforeEach(module('baseAngular.i18n'));
-  beforeEach(inject(function(_$compile_, _$rootScope_) {
+  beforeEach(module('baseAngular.i18n', 'app/components/i18n/i18nSwitch.template.html'));
+  beforeEach(inject(function($templateCache, _$compile_, _$rootScope_) {
+    var template = $templateCache.get('app/components/i18n/i18nSwitch.template.html');
+		$templateCache.put('/app/components/i18n/i18nSwitch.template.html',template);
     $compile = _$compile_;
     $rootScope = _$rootScope_;
   }));
@@ -20,6 +22,7 @@ describe('Switch Language directive', function () {
   it('Should show options to change language', inject(function($httpBackend) {
 
     $httpBackend.whenGET(/\.json$/).respond('');
+    $httpBackend.whenGET(/\.html$/).respond('');
     var directiveElement = getCompiledElement();
     var buttonElements = directiveElement.find('option');
     expect(buttonElements.length).to.be.above(1);
@@ -30,7 +33,9 @@ describe('Switch Language directive', function () {
     i18nController.changeLocale('es_ES');
 
     $httpBackend.whenGET(/\.json$/).respond('');
+    $httpBackend.whenGET(/\.html$/).respond('');
     var directiveElement = getCompiledElement();
+    console.log(directiveElement);
     var optionElements = directiveElement.find('option');
     for (var option=0; option < optionElements.length; option++) {
       if (optionElements[option].innerHTML == 'Español') {
