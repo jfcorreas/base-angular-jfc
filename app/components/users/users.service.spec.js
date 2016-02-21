@@ -11,4 +11,11 @@ describe('Users Service', function() {
   it ('Should exists', function() {
     UsersService.should.exist;
   });
+
+  it ('Should supply the current authenticated user', function() {
+    UsersService.getAuthenticatedUser.should.exist;
+    var currentUser = UsersService.getAuthenticatedUser();
+    currentUser.username.should.be.equal('guest');
+    currentUser.userRoles.length.should.be.above(0);
+  });
 });

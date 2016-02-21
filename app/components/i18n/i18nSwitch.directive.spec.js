@@ -35,7 +35,6 @@ describe('Switch Language directive', function () {
     $httpBackend.whenGET(/\.json$/).respond('');
     $httpBackend.whenGET(/\.html$/).respond('');
     var directiveElement = getCompiledElement();
-    console.log(directiveElement);
     var optionElements = directiveElement.find('option');
     for (var option=0; option < optionElements.length; option++) {
       if (optionElements[option].innerHTML == 'Español') {
