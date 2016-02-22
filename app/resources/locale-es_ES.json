@@ -1,5 +1,6 @@
 {
   "TITLE": "Base AngularJS",
   "CONTENT": "Contenido",
-  "i18nSwitch.label": "Idioma"
+  "i18nSwitch.label": "Idioma",
+  "userLogin.welcome": "Bienvenido"
 }

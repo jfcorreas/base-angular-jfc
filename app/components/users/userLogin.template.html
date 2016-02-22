@@ -1,0 +1,6 @@
+<span ng-if="users.currentUser.username == 'guest'">
+  Login form HERE!!!
+</span>
+<span ng-if="users.currentUser.username != 'guest'">
+  <i>{{"userLogin.welcome" | translate}}</i> {{users.currentUser.username}}
+</span>

@@ -12,5 +12,6 @@
 angular
   .module('baseAngular', [
     'baseAngular.core',
-    'baseAngular.i18n'
+    'baseAngular.i18n',
+    'baseAngular.users'
   ]);

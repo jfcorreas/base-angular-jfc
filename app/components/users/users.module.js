@@ -11,5 +11,6 @@
 
 angular
   .module('baseAngular.users', [
-    'baseAngular.core'
+    'baseAngular.core',
+    'baseAngular.i18n'
   ]);
