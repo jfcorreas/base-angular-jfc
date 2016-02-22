@@ -25,13 +25,14 @@
         .factory('UsersService', ['USER_ROLES', 'AUTH_EVENTS', UsersService]);
 
     function UsersService(USER_ROLES, AUTH_EVENTS) {
+      var currentUser = { username: 'guest', userRoles: [USER_ROLES.guest]};
       var service = {
         getAuthenticatedUser: authenticatedUser
       };
       return service;
 
       function authenticatedUser(){
-        return { username: 'guest', userRoles: [USER_ROLES.guest]};
+        return currentUser;
       }
     }
 })();
