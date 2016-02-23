@@ -1,5 +1,9 @@
 <span ng-if="users.currentUser.username == 'guest'">
-  Login form HERE!!!
+  <form name="userLoginForm" class"horizontalForm" ng-submit="users.doLogin()">
+    <input name="username" ng-model="users.username" placeholder="{{'userLogin.username' | translate}}" required>
+    <input name="password" type="password" ng-model="users.password" placeholder="{{'userLogin.password' | translate}}" required>
+    <button type="submit" translate>{{"userLogin.login"}}</button>
+  </form>
 </span>
 <span ng-if="users.currentUser.username != 'guest'">
   <i>{{"userLogin.welcome" | translate}}</i> {{users.currentUser.username}}

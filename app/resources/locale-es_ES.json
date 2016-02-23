@@ -2,5 +2,8 @@
   "TITLE": "Base AngularJS",
   "CONTENT": "Contenido",
   "i18nSwitch.label": "Idioma",
-  "userLogin.welcome": "Bienvenido"
+  "userLogin.welcome": "Bienvenido",
+  "userLogin.username": "Usuario",
+  "userLogin.password": "Password",
+  "userLogin.login": "Entrar"  
 }

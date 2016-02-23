@@ -31,10 +31,10 @@
 <body>
 <div class="container" ng-controller='MainController as main'>
   <div class="header">
-      <h3 translate>{{ 'TITLE' }}</h3>
+    <i18n-switch class="languageSwitch"></i18n-switch>
+    <h3 translate>{{ 'TITLE' }}</h3>
   </div>
   <div class="navigation">
-    <i18n-switch></i18n-switch>
     <user-login></user-login>
   </div>
   <div id="main">
