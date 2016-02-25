@@ -12,5 +12,7 @@
 angular
   .module('baseAngular.core', [
     'ngRoute',
-    'ngSanitize'
+    'ngSanitize',
+    'ngAnimate',
+    'ngMaterial'
   ]);

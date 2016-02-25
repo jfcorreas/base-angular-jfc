@@ -1,12 +1,27 @@
 <!doctype html>
-<html lang="en" ng-app="baseAngular">
+<html lang="en">
 <head>
   <meta charset="utf-8">
   <title translate>{{ 'TITLE' }}</title>
   <link href='http://fonts.googleapis.com/css?family=Shadows+Into+Light' rel='stylesheet' type='text/css'>
   <link href='http://fonts.googleapis.com/css?family=Lato:300' rel='stylesheet' type='text/css'>
   <link rel="stylesheet" href="app/css/app.css">
-  <script src="node_modules/angular/angular.min.js"></script>
+  <link rel="stylesheet" href="bower_components/angular-material/angular-material.min.css">
+</head>
+<body  ng-app="baseAngular" layout="column" ng-controller='MainController as main'>
+  <md-toolbar layout="row" ng-cloack>
+    <h3 translate>{{ 'TITLE' }}</h3>
+
+    <i18n-switch class="languageSwitch"></i18n-switch>
+  </md-toolbar>
+  <div class="navigation" ng-cloack>
+    <user-login></user-login>
+  </div>
+  <div flex layout="row" ng-view ng-cloack></div>
+  <div class="footer" ng-cloack>
+      {{ main.today | date:'medium' }}
+  </div>
+  <script src="bower_components/angular/angular.min.js"></script>
   <script src="bower_components/angular-route/angular-route.min.js"></script>
   <script src="bower_components/angular-i18n/angular-locale_es.js"></script>
   <script src="bower_components/angular-i18n/angular-locale_en.js"></script>
@@ -15,6 +30,10 @@
   <script src="bower_components/angular-translate/angular-translate.min.js"></script>
   <script src="bower_components/angular-translate-loader-static-files/angular-translate-loader-static-files.min.js"></script>
   <script src="bower_components/angular-translate-handler-log/angular-translate-handler-log.min.js"></script>
+  <script src="bower_components/angular-aria/angular-aria.min.js"></script>
+  <script src="bower_components/angular-animate/angular-animate.min.js"></script>
+  <script src="bower_components/angular-messages/angular-messages.min.js"></script>
+  <script src="bower_components/angular-material/angular-material.min.js"></script>
   <script src="app/baseAngular.module.js"></script>
   <script src="app/baseAngular.core.module.js"></script>
   <script src="app/components/home/main.controller.js"></script>
@@ -27,23 +46,5 @@
   <script src="app/components/users/users.service.js"></script>
   <script src="app/components/users/users.controller.js"></script>
   <script src="app/components/users/userLogin.directive.js"></script>
-</head>
-<body>
-<div class="container" ng-controller='MainController as main'>
-  <div class="header">
-    <i18n-switch class="languageSwitch"></i18n-switch>
-    <h3 translate>{{ 'TITLE' }}</h3>
-  </div>
-  <div class="navigation">
-    <user-login></user-login>
-  </div>
-  <div id="main">
-	     <div ng-view></div>
-  </div>
-  <div class="footer">
-      {{ main.today | date:'medium' }}
-  </div>
-</div>
-
 </body>
 </html>

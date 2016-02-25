@@ -18,7 +18,6 @@
   },
   "homepage": "https://github.com/jfcorreas/base-angular-jfc#readme",
   "devDependencies": {
-    "angular-mocks": "^1.4.8",
     "chai": "^3.4.1",
     "karma": "^0.13.19",
     "karma-chai": "^0.1.0",
@@ -31,7 +30,6 @@
     "phantomjs": "^2.1.3"
   },
   "dependencies": {
-    "angular": "^1.4.8",
     "bower": "^1.7.7"
   }
 }

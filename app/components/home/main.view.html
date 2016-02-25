@@ -1,3 +1,20 @@
-<div>
-    <p translate> {{ 'CONTENT' }} </p>
-</div>
+<md-sidenav md-is-locked-open="true" class="md-whiteframe-z2">
+  <md-list>
+    <md-list-item >
+        <md-button>
+          <md-icon md-svg-icon="social:Twitter" style="color: #00F;" class="s48" aria-label="People Icon"></md-icon>
+          Entrada 1
+        </md-button>
+    </md-list-item>
+    <md-list-item >
+        <md-button>
+          <md-icon md-svg-icon="social:RSS" style="color: #00F;" class="s48" aria-label="People Icon"></md-icon>
+          Entrada 2
+        </md-button>
+    </md-list-item>
+
+  </md-list>
+</md-sidenav>
+<md-content flex id="content">
+  <p translate> {{ 'CONTENT' }} </p>
+</md-content>

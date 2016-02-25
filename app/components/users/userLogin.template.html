@@ -1,9 +1,14 @@
 <span ng-if="users.currentUser.username == 'guest'">
-  <form name="userLoginForm" class"horizontalForm" ng-submit="users.doLogin()">
-    <input name="username" ng-model="users.username" placeholder="{{'userLogin.username' | translate}}" required>
-    <input name="password" type="password" ng-model="users.password" placeholder="{{'userLogin.password' | translate}}" required>
-    <button type="submit" translate>{{"userLogin.login"}}</button>
-  </form>
+  <md-content layout-gt-sm="row" layout-padding>
+    <form name="userLoginForm" class"md-inline-form" ng-submit="users.doLogin()">
+      <md-input-container>
+        <md-input name="username" ng-model="users.username" placeholder="{{'userLogin.username' | translate}}" required>
+        <md-input name="password" type="password" ng-model="users.password" placeholder="{{'userLogin.password' | translate}}" required>
+      </md-input-container>
+      <md-button type="submit"class="md" translate>{{"userLogin.login"}}</md-button>
+      <md-button class="md-raised md-warn">Warn</md-button>
+    </form>
+</md-content>
 </span>
 <span ng-if="users.currentUser.username != 'guest'">
   <i>{{"userLogin.welcome" | translate}}</i> {{users.currentUser.username}}
