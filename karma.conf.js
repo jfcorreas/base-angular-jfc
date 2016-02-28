@@ -19,8 +19,8 @@ module.exports = function(config) {
 
     // list of files / patterns to load in the browser
     files: [
-      'node_modules/angular/angular.js',
-      'node_modules/angular-mocks/angular-mocks.js',
+      'bower_components/angular/angular.js',
+      'bower_components/angular-mocks/angular-mocks.js',
       {pattern: 'bower_components/angular-i18n/angular-locale_*.js', watched: false, included:false, served:true },
       'bower_components/angular-dynamic-locale/tmhDynamicLocale.min.js',
       'bower_components/angular-translate/angular-translate.min.js',

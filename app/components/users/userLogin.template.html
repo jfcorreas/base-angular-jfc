@@ -1,23 +1,9 @@
 <span ng-if="users.currentUser.username == 'guest'">
-<<<<<<< HEAD
-  <md-content layout-gt-sm="row" layout-padding>
-    <form name="userLoginForm" class"md-inline-form" ng-submit="users.doLogin()">
-      <md-input-container>
-        <input name="username" ng-model="users.username" placeholder="{{'userLogin.username' | translate}}" required>
-      </md-input-container>
-      <md-input-container>
-        <input name="password" type="password" ng-model="users.password" placeholder="{{'userLogin.password' | translate}}" required>
-      </md-input-container>
-      <md-button type="submit" class="md-raised" translate>{{"userLogin.login"}}</md-button>
-    </form>
-</md-content>
-=======
   <form name="userLoginForm" class"horizontalForm" ng-submit="users.doLogin()">
     <input name="username" ng-model="users.username" placeholder="{{'userLogin.username' | translate}}" required>
     <input name="password" type="password" ng-model="users.password" placeholder="{{'userLogin.password' | translate}}" required>
     <button type="submit" translate>{{"userLogin.login"}}</button>
   </form>
->>>>>>> parent of 0134b63... Adding angular-material to the app
 </span>
 <span ng-if="users.currentUser.username != 'guest'">
   <i>{{"userLogin.welcome" | translate}}</i> {{users.currentUser.username}}
