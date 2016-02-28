@@ -24,7 +24,7 @@ describe('User Login directive', function () {
     $httpBackend.whenGET(/\.json$/).respond('');
     $httpBackend.whenGET(/\.html$/).respond('');
     var directiveElement = getCompiledElement();
-    var buttonElements = directiveElement.find('form');
+    var buttonElements = directiveElement.find('span');
     expect(buttonElements.length).to.be.equal(1);
 	}));
 });

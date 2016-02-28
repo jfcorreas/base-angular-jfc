@@ -19,18 +19,14 @@ module.exports = function(config) {
 
     // list of files / patterns to load in the browser
     files: [
-      'bower_components/angular/angular.js',
-      'bower_components/angular-mocks/angular-mocks.js',
+      'node_modules/angular/angular.js',
+      'node_modules/angular-mocks/angular-mocks.js',
       {pattern: 'bower_components/angular-i18n/angular-locale_*.js', watched: false, included:false, served:true },
       'bower_components/angular-dynamic-locale/tmhDynamicLocale.min.js',
       'bower_components/angular-translate/angular-translate.min.js',
       'bower_components/angular-translate-loader-static-files/angular-translate-loader-static-files.min.js',
       'bower_components/angular-sanitize/angular-sanitize.min.js',
       'bower_components/angular-route/angular-route.min.js',
-      'bower_components/angular-aria/angular-aria.min.js',
-      'bower_components/angular-animate/angular-animate.min.js',
-      'bower_components/angular-messages/angular-messages.min.js',
-      'bower_components/angular-material/angular-material.min.js',
       'app/baseAngular.module.js',
       'app/**/*.module.js',
       'app/**/*.routes.js',
