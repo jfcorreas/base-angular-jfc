@@ -2,16 +2,16 @@
 <html lang="en">
 <head>
   <meta charset="utf-8">
-  <title translate>{{ 'TITLE' }}</title>
+  <title>Angular Base</title>
   <link href='http://fonts.googleapis.com/css?family=Shadows+Into+Light' rel='stylesheet' type='text/css'>
   <link href='http://fonts.googleapis.com/css?family=Lato:300' rel='stylesheet' type='text/css'>
+  <link href="https://fonts.googleapis.com/icon?family=Material+Icons" rel="stylesheet">
   <link rel="stylesheet" href="app/css/app.css">
   <link rel="stylesheet" href="bower_components/angular-material/angular-material.min.css">
 </head>
 <body  ng-app="baseAngular" layout="column" ng-controller='MainController as main'>
   <md-toolbar layout="row" ng-cloack>
     <h3 translate>{{ 'TITLE' }}</h3>
-
     <i18n-switch class="languageSwitch"></i18n-switch>
   </md-toolbar>
   <div class="navigation" ng-cloack>
