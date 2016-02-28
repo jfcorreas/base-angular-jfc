@@ -29,7 +29,7 @@ describe('Switch Language directive', function () {
 	}));
 
 	it('Current language option should be selected', inject(function($controller, $httpBackend) {
-		var i18nController = $controller('i18nController');
+		var i18nController = $controller('I18nController');
     i18nController.changeLocale('es_ES');
 
     $httpBackend.whenGET(/\.json$/).respond('');

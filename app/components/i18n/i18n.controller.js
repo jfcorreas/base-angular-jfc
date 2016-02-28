@@ -6,7 +6,7 @@
 
     angular
         .module('baseAngular.i18n')
-        .controller('i18nController', ['i18nService', I18nController]);
+        .controller('I18nController', ['i18nService', I18nController]);
 
     function I18nController(i18nService) {
         var vm = this;

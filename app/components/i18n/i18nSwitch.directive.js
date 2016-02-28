@@ -9,7 +9,7 @@
       var directive = {
           restrict: 'EA',
           templateUrl:   '/app/components/i18n/i18nSwitch.template.html',
-          controller: 'i18nController',
+          controller: 'I18nController',
           controllerAs: 'i18n',
           bindToController: true
       };

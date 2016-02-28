@@ -17,11 +17,11 @@ npm install karma-ng-html2js-preprocessor --save-dev
 npm install bower --save
 bower install angular --save
 bower install angular-mocks --save-dev
-bower install angular-translate --save
-bower install angular-i18n --save
-bower install angular-dynamic-locale --save
-bower install angular-locale --save
 bower install angular-sanitize --save
 bower install angular-route --save
+bower install angular-i18n --save
+bower install angular-locale --save
+bower install angular-dynamic-locale --save
+bower install angular-translate --save
 bower install angular-translate-loader-static-files --save
 bower install angular-translate-handler-log --save

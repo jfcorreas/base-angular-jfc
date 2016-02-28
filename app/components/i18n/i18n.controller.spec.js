@@ -5,7 +5,7 @@ describe('i18n Controller', function () {
 
   beforeEach(module('baseAngular.i18n'));
   beforeEach(inject(function($controller){
-    i18nController = $controller('i18nController');
+    i18nController = $controller('I18nController');
   }));
 
 	it('Should exist', function() {
