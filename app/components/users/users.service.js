@@ -22,10 +22,14 @@
           notAuthenticated: 'auth-not-authenticated',
           notAuthorized: 'auth-not-authorized'
         })
-        .factory('UsersService', ['USER_ROLES', 'AUTH_EVENTS', UsersService]);
+        .factory('UsersService', ['USER_ROLES', 'AUTH_EVENTS', '_', UsersService]);
 
-    function UsersService(USER_ROLES, AUTH_EVENTS) {
-      var currentUser = { username: 'guest', userRoles: [USER_ROLES.guest]};
+    function UsersService(USER_ROLES, AUTH_EVENTS, _) {
+      var fakeUsers = [
+        { username: 'guest', password:'guest', userRoles: [USER_ROLES.guest]},
+        { username: 'admin', password:'admin', userRoles: [USER_ROLES.admin]}
+      ];
+      var currentUser = fakeUsers[0];
       var service = {
         getAuthenticatedUser: authenticatedUser
       };

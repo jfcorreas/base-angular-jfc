@@ -25,3 +25,4 @@ bower install angular-dynamic-locale --save
 bower install angular-translate --save
 bower install angular-translate-loader-static-files --save
 bower install angular-translate-handler-log --save
+bower install underscore --save

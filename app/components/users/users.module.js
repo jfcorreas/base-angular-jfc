@@ -12,5 +12,6 @@
 angular
   .module('baseAngular.users', [
     'baseAngular.core',
+    'underscore',
     'baseAngular.i18n'
   ]);

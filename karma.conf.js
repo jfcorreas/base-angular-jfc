@@ -27,6 +27,7 @@ module.exports = function(config) {
       'bower_components/angular-translate-loader-static-files/angular-translate-loader-static-files.min.js',
       'bower_components/angular-sanitize/angular-sanitize.min.js',
       'bower_components/angular-route/angular-route.min.js',
+      'bower_components/underscore/underscore-min.js',
       'app/baseAngular.module.js',
       'app/**/*.module.js',
       'app/**/*.routes.js',
