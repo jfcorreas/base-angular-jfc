@@ -29,7 +29,7 @@
         { username: 'guest', password:'guest', userRoles: [USER_ROLES.guest]},
         { username: 'admin', password:'admin', userRoles: [USER_ROLES.admin]}
       ];
-      var currentUser = fakeUsers[0];
+      var currentUser = {};
       var service = {
         getAuthenticatedUser: authenticatedUser
       };

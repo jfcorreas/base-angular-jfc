@@ -14,8 +14,8 @@ describe('Users Service', function() {
 
   it ('Should supply the current authenticated user', function() {
     UsersService.getAuthenticatedUser.should.exist;
-    var currentUser = UsersService.getAuthenticatedUser();
-    currentUser.username.should.be.equal('guest');
-    currentUser.userRoles.length.should.be.above(0);
+    var emptyUser = UsersService.getAuthenticatedUser();
+    emptyUser.should.be.empty;
+    // currentUser.userRoles.length.should.be.above(0);
   });
 });
