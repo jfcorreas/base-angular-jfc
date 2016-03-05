@@ -13,15 +13,17 @@ describe('Users Service', function() {
   });
 
   it ('On first load, no user is authenticated', function() {
-    UsersService.getAuthenticatedUser.should.exist;
-    var emptyUser = UsersService.getAuthenticatedUser();
-    emptyUser.should.be.empty;
+    UsersService.currentUser.should.exist;
+    UsersService.currentUser().username.should.be.equal('');
+    UsersService.currentUser().isLogged.should.be.false;
   });
 
-  describe('Login', function() {
+  describe('Login function', function() {
     it ('Should authenticate a valid user', function() {
       UsersService.doLogin('guest','guest', function(response) {
         response.success.should.be.true;
+        UsersService.currentUser().username.should.be.equal('guest');
+        UsersService.currentUser().isLogged.should.be.true;
       });
     });
 
@@ -29,6 +31,8 @@ describe('Users Service', function() {
       UsersService.doLogin('falseUser','guest', function(response) {
         response.success.should.be.false;
         response.message.should.be.equal('Username or password is incorrect');
+        UsersService.currentUser().username.should.be.equal('');
+        UsersService.currentUser().isLogged.should.be.false;
       });
     });
 
@@ -36,15 +40,9 @@ describe('Users Service', function() {
       UsersService.doLogin('guest','falsePassword', function(response) {
         response.success.should.be.false;
         response.message.should.be.equal('Username or password is incorrect');
+        UsersService.currentUser().username.should.be.equal('');
+        UsersService.currentUser().isLogged.should.be.false;
       });
     });
   });
-
-  it ('Should supply the current authenticated user', function() {
-    UsersService.getAuthenticatedUser.should.exist;
-    var emptyUser = UsersService.getAuthenticatedUser();
-    emptyUser.should.be.empty;
-    // currentUser.userRoles.length.should.be.above(0);
-  });
-
 });

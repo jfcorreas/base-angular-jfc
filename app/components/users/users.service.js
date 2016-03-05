@@ -29,30 +29,41 @@
         'guest': { password:'guest', userRoles: [USER_ROLES.guest]},
         'admin': { password:'admin', userRoles: [USER_ROLES.admin]}
       };
-      var currentUser = {};
+      var authentication = {
+        isLogged : false,
+        username : ''
+      };
       var service = {
-        getAuthenticatedUser: authenticatedUser,
+        currentUser: authenticatedUser,
         doLogin: login
       };
       return service;
 
       function authenticatedUser(){
-        return currentUser;
+        return authentication;
       }
 
       function login(username, password, callback) {
-        var response = {};
+        if (validCredentials(username, password)) {
+          authentication.isLogged = true;
+          authentication.username = username;
+          callback({ success: true });
+        } else {
+          callback({ success: false, message: "Username or password is incorrect" });
+        }
+      }
+
+      function validCredentials(username, password) {
+        var areValidCredentials = false;
         Object.keys(fakeUsers).some(function(key) {
-          if (key === username && fakeUsers[key].password === password) {
-            response = { success: true };
+          if (key === username) {
+            if (fakeUsers[key].password === password) {
+              areValidCredentials = true;
+            }
             return true;
           }
         });
-        if (_.isEmpty(response)) {
-          callback({ success: false, message: "Username or password is incorrect" });
-        } else {
-          callback(response);
-        }
+        return areValidCredentials;
       }
     /*  function SetCredentials(username, password) {
           var authdata = Base64.encode(username + ':' + password);

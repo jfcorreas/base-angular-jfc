@@ -11,7 +11,7 @@
     function UsersController(UsersService) {
         var vm = this;
 
-        vm.currentUser = UsersService.getAuthenticatedUser();
+        vm.currentUser = UsersService.currentUser();
         vm.username = '';
         vm.password = '';
         vm.doLogin = doLogin;
