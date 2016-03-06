@@ -25,17 +25,16 @@
         .factory('UsersService', ['USER_ROLES', 'AUTH_EVENTS', '_', UsersService]);
 
     function UsersService(USER_ROLES, AUTH_EVENTS, _) {
-      var fakeUsers = {
-        'guest': { password:'guest', userRoles: [USER_ROLES.guest]},
-        'admin': { password:'admin', userRoles: [USER_ROLES.admin]}
-      };
+
       var authentication = {
         isLogged : false,
         username : ''
       };
+
       var service = {
         currentUser: authenticatedUser,
-        doLogin: login
+        doLogin: login,
+        doLogout: logout
       };
       return service;
 
@@ -44,7 +43,7 @@
       }
 
       function login(username, password, callback) {
-        if (validCredentials(username, password)) {
+        if (fakeValidCredentials(username, password)) {
           authentication.isLogged = true;
           authentication.username = username;
           callback({ success: true });
@@ -53,7 +52,19 @@
         }
       }
 
-      function validCredentials(username, password) {
+      function logout(callback) {
+        if (fakeCleanCredentials()) {
+          callback({ success: true });
+        } else {
+          callback({ success: false, message: "Error trying to logout" });
+        }
+      }
+
+      function fakeValidCredentials(username, password) {
+        var fakeUsers = {
+          'guest': { password:'guest', userRoles: [USER_ROLES.guest]},
+          'admin': { password:'admin', userRoles: [USER_ROLES.admin]}
+        };
         var areValidCredentials = false;
         Object.keys(fakeUsers).some(function(key) {
           if (key === username) {
@@ -64,6 +75,15 @@
           }
         });
         return areValidCredentials;
+      }
+
+      function fakeCleanCredentials() {
+        // TODO send logout signal to the server
+        authentication = {
+          isLogged : false,
+          username : ''
+        };
+        return true;
       }
     /*  function SetCredentials(username, password) {
           var authdata = Base64.encode(username + ':' + password);

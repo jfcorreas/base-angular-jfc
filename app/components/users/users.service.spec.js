@@ -45,4 +45,19 @@ describe('Users Service', function() {
       });
     });
   });
+
+  describe('Logout function', function() {
+    it('Should clean currentUser', function() {
+      UsersService.doLogin('guest','guest', function(response) {
+        response.success.should.be.true;
+        UsersService.currentUser().username.should.be.equal('guest');
+        UsersService.currentUser().isLogged.should.be.true;
+        UsersService.doLogout(function (response) {
+          response.success.should.be.true;
+          UsersService.currentUser().username.should.be.equal('');
+          UsersService.currentUser().isLogged.should.be.false;
+        });
+      });
+    });
+  });
 });
