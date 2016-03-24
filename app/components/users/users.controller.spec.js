@@ -9,11 +9,11 @@ describe('Users Controller', function () {
   }));
 
 	it('Should exist', function() {
-	  usersController.should.exist;
+	  expect(usersController).toBeDefined();
 	});
 
   it('Should provide current authenticated user', function() {
-    usersController.currentUser.should.exist;
+    expect(usersController.currentUser).toBeDefined();
   //  usersController.currentUser.username.should.exist;
   //  usersController.currentUser.userRoles.length.should.be.above(0);
   });

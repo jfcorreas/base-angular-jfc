@@ -9,21 +9,21 @@ describe('i18n Controller', function () {
   }));
 
 	it('Should exist', function() {
-	  i18nController.should.exist;
+	  expect(i18nController).toBeDefined();
 	});
 
   it('Should provide configured locales', function() {
-    i18nController.locales.should.exist;
+    expect(i18nController.locales).toBeDefined();
   });
 
   it('Should provide current locale', function() {
-    i18nController.currentLocale.should.exist;
+    expect(i18nController.currentLocale).toBeDefined();
   });
 
   it('Should provide change locale funtion', function() {
-    i18nController.changeLocale.should.exist;
+    expect(i18nController.changeLocale).toBeDefined();
     i18nController.changeLocale('es_ES');
-    i18nController.currentLocale.id.should.be.equal('es_ES');
+    expect(i18nController.currentLocale.id).toEqual('es_ES');
     // TODO - Fails if change locale again
     i18nController.changeLocale();
   });

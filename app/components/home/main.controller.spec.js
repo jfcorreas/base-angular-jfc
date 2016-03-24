@@ -8,7 +8,7 @@ describe('Main Controller', function () {
   describe('MainController', function() {
   	it('Should exist', inject(function($controller) {
   		var mainController = $controller('MainController');
-		  mainController.should.exist;
+		  expect(mainController).toBeDefined();
   	}));
   });
 });

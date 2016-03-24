@@ -25,7 +25,7 @@ describe('Switch Language directive', function () {
     $httpBackend.whenGET(/\.html$/).respond('');
     var directiveElement = getCompiledElement();
     var buttonElements = directiveElement.find('option');
-    expect(buttonElements.length).to.be.above(1);
+    expect(buttonElements.length).toBeGreaterThan(1);
 	}));
 
 	it('Current language option should be selected', inject(function($controller, $httpBackend) {
@@ -38,9 +38,9 @@ describe('Switch Language directive', function () {
     var optionElements = directiveElement.find('option');
     for (var option=0; option < optionElements.length; option++) {
       if (optionElements[option].innerHTML == 'Español') {
-        expect(optionElements[option].selected).to.be.true;
+        expect(optionElements[option].selected).toBeTruthy();
       } else {
-        expect(optionElements[option].disabled).to.be.false;
+        expect(optionElements[option].disabled).toBeFalsy();
       }
     }
 	}));

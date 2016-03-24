@@ -18,31 +18,31 @@ describe('i18n Service', function () {
   }));
 
 	it('Should exist', function() {
-	  i18nService.should.exist;
+	  expect(i18nService).toBeDefined();
 	});
 
   it('Should have configured locales', function() {
-    expect(i18nService.getLocales().length).to.be.equal(2);
-    i18nService.getLocales()[0].id.should.equal('es_ES');
-    i18nService.getLocales()[1].id.should.equal('en_US');
-    i18nService.getLocales()[0].display.should.equal('Español');
-    i18nService.getLocales()[1].display.should.equal('English');
+    expect(i18nService.getLocales().length).toEqual(2);
+    expect(i18nService.getLocales()[0].id).toEqual('es_ES');
+    expect(i18nService.getLocales()[1].id).toEqual('en_US');
+    expect(i18nService.getLocales()[0].display).toEqual('Español');
+    expect(i18nService.getLocales()[1].display).toEqual('English');
   });
 
   it('Should expose current locale', function() {
-    i18nService.getCurrentLocale().id.should.equal('en_US');
-    i18nService.getCurrentLocale().display.should.equal('English');
+    expect(i18nService.getCurrentLocale().id).toEqual('en_US');
+    expect(i18nService.getCurrentLocale().display).toEqual('English');
   });
 
   describe('Change Language function', function() {
     it('Should exist', function() {
-      i18nService.changeLanguage.should.exist;
+      expect(i18nService.changeLanguage).toBeDefined();
     });
 
     it('Should change the language and mantain current locale', function() {
-      i18nService.getCurrentLocale().id.should.equal('en_US');
+      expect(i18nService.getCurrentLocale().id).toEqual('en_US');
       i18nService.changeLanguage('es_ES');
-      i18nService.getCurrentLocale().id.should.equal('es_ES');
+      expect(i18nService.getCurrentLocale().id).toEqual('es_ES');
     });
   });
 
