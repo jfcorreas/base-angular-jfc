@@ -12,12 +12,14 @@
         var vm = this;
 
         vm.currentUser = UsersService.currentUser();
-        vm.username = '';
-        vm.password = '';
+        vm.loginUsername = '';
+        vm.loginPassword = '';
         vm.doLogin = doLogin;
 
         function doLogin() {
-          console.log(vm.username + ' logged in');
+          UsersService.doLogin(vm.loginUsername,vm.loginPassword, function(){
+            return true;
+          });
         }
 
     }

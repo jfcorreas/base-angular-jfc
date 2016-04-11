@@ -1,16 +1,14 @@
-'use strict'
+'use strict';
 
 /*jshint expr:true*/
 describe('Test Promises Service', function() {
   var service;
   var $httpBackend;
-  var $scope;
 
   beforeEach(module('testpromises'));
-  beforeEach(inject(function(searchService, _$httpBackend_,_$rootScope_){
+  beforeEach(inject(function(searchService, _$httpBackend_){
     service = searchService;
     $httpBackend = _$httpBackend_;
-    $scope =  _$rootScope_.$new();
   }));
 
   it('Should receive search results from the backend', function(done){
