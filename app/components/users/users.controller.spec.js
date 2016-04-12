@@ -1,7 +1,8 @@
 'use strict';
 /*jshint expr: true*/
 describe('Users Controller', function () {
-  var usersController, usersService;
+  var usersController;
+  var usersService;
 
   beforeEach(module('baseAngular.users'));
   beforeEach(inject(function($controller, _UsersService_){
@@ -19,9 +20,21 @@ describe('Users Controller', function () {
     expect(usersController.currentUser.isLogged).toBeDefined();
   });
 
-  it('Should provide doLogin function and UsersService.doLogin is called', function() {
-    spyOn(usersService,'doLogin');
-    usersController.doLogin();
-    expect(usersService.doLogin).toHaveBeenCalled();
+  describe('doLogin function', function() {
+    it('Should provide doLogin function and UsersService.doLogin is called', function() {
+      spyOn(usersService,'doLogin').and.callThrough();
+      usersController.doLogin();
+      expect(usersService.doLogin).toHaveBeenCalled();
+    });
+
+    it('doLogin function should fill currentUser on valid login', function() {
+      spyOn(usersService,'doLogin').and.callThrough();
+      usersController.loginUsername = 'guest';
+      usersController.loginPassword = 'guest';
+      usersController.doLogin();
+      expect(usersService.doLogin).toHaveBeenCalledWith('guest', 'guest', jasmine.any(Function));
+      expect(usersController.currentUser.username).toBe('guest');
+      expect(usersController.currentUser.isLogged).toBeTruthy();
+    });
   });
 });

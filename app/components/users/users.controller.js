@@ -17,8 +17,10 @@
         vm.doLogin = doLogin;
 
         function doLogin() {
-          UsersService.doLogin(vm.loginUsername,vm.loginPassword, function(){
-            return true;
+          UsersService.doLogin(vm.loginUsername,vm.loginPassword, function(response){
+            if (response.success) {
+              vm.currentUser = UsersService.currentUser();
+            }
           });
         }
 
