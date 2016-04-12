@@ -20,6 +20,10 @@ describe('Users Controller', function () {
     expect(usersController.currentUser.isLogged).toBeDefined();
   });
 
+  it('Should provide error messages', function() {
+    expect(usersController.errorMessage).toBeDefined();
+  });
+
   describe('doLogin function', function() {
     it('Should provide doLogin function and UsersService.doLogin is called', function() {
       spyOn(usersService,'doLogin').and.callThrough();
@@ -35,6 +39,17 @@ describe('Users Controller', function () {
       expect(usersService.doLogin).toHaveBeenCalledWith('guest', 'guest', jasmine.any(Function));
       expect(usersController.currentUser.username).toBe('guest');
       expect(usersController.currentUser.isLogged).toBeTruthy();
+    });
+
+    it('doLogin function should show message on invalid login', function() {
+      spyOn(usersService,'doLogin').and.callThrough();
+      usersController.loginUsername = 'noUser';
+      usersController.loginPassword = 'badPassword';
+      usersController.doLogin();
+      expect(usersService.doLogin).toHaveBeenCalledWith('noUser', 'badPassword', jasmine.any(Function));
+      expect(usersController.currentUser.username).toBe('');
+      expect(usersController.currentUser.isLogged).toBeFalsy();
+      expect(usersController.errorMessage).toBe('Username or password is incorrect');
     });
   });
 });
