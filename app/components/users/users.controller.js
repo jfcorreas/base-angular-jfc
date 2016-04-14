@@ -16,6 +16,7 @@
         vm.loginPassword = '';
         vm.errorMessage = '';
         vm.doLogin = doLogin;
+        vm.doLogout = doLogout;
 
         function doLogin() {
           UsersService.doLogin(vm.loginUsername,vm.loginPassword, function(response){
@@ -25,6 +26,14 @@
             } else {
               vm.errorMessage = response.message;
             }
+          });
+        }
+
+        function doLogout() {
+          UsersService.doLogout(function(response){
+            vm.currentUser = UsersService.currentUser();
+            vm.loginUsername = '';
+            vm.loginPassword = '';
           });
         }
     }

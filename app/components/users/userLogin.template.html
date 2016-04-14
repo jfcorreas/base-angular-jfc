@@ -8,4 +8,7 @@
 </span>
 <span ng-if="users.currentUser.isLogged">
   <i>{{"userLogin.welcome" | translate}}</i> {{users.currentUser.username}}
+  <form name="userLogoutForm" class"horizontalForm" ng-submit="users.doLogout()">
+    <button type="submit" translate>{{"userLogin.logout"}}</button>
+  </form>
 </span>

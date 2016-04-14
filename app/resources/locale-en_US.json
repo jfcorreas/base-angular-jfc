@@ -5,6 +5,7 @@
   "userLogin.welcome": "Welcome",
   "userLogin.username": "Username",
   "userLogin.password": "Password",
-  "userLogin.login": "LogIn",
+  "userLogin.login": "Log In",
+  "userLogin.logout": "Log Out",
   "userLogin.loginError": "Invalid user or password"
 }

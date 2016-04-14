@@ -52,4 +52,25 @@ describe('Users Controller', function () {
       expect(usersController.errorMessage).toBe('Username or password is incorrect');
     });
   });
+
+  describe('doLogout function', function() {
+    it('Should provide doLogout function and UsersService.doLogout is called', function() {
+      spyOn(usersService,'doLogout').and.callThrough();
+      usersController.doLogout();
+      expect(usersService.doLogout).toHaveBeenCalled();
+    });
+
+    it('doLogout function should empty currentUser', function() {
+      usersController.loginUsername = 'guest';
+      usersController.loginPassword = 'guest';
+      usersController.doLogin();
+      spyOn(usersService,'doLogout').and.callThrough();
+      usersController.doLogout();
+      expect(usersService.doLogout).toHaveBeenCalledWith(jasmine.any(Function));
+      expect(usersController.currentUser.username).toBe('');
+      expect(usersController.currentUser.isLogged).toBeFalsy();
+      expect(usersController.loginUsername).toBe('');
+      expect(usersController.loginPassword).toBe('');
+    });
+  });
 });

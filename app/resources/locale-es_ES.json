@@ -6,5 +6,6 @@
   "userLogin.username": "Usuario",
   "userLogin.password": "Password",
   "userLogin.login": "Entrar",
-  "userLogin.loginError": "Usuario o password incorrecto" 
+  "userLogin.logout": "Cerrar Sesión",
+  "userLogin.loginError": "Usuario o password incorrecto"
 }
