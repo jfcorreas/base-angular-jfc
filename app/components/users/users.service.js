@@ -31,10 +31,16 @@
         username : ''
       };
 
+      var fakeUsers = {
+        'guest': { password:'guest', userRoles: [USER_ROLES.guest]},
+        'admin': { password:'admin', userRoles: [USER_ROLES.admin]}
+      };
+
       var service = {
         currentUser: authenticatedUser,
         doLogin: login,
-        doLogout: logout
+        doLogout: logout,
+        getRegisteredUsers: getUsersList
       };
       return service;
 
@@ -61,10 +67,7 @@
       }
 
       function fakeValidCredentials(username, password) {
-        var fakeUsers = {
-          'guest': { password:'guest', userRoles: [USER_ROLES.guest]},
-          'admin': { password:'admin', userRoles: [USER_ROLES.admin]}
-        };
+
         var areValidCredentials = false;
         Object.keys(fakeUsers).some(function(key) {
           if (key === username) {
@@ -104,5 +107,14 @@
           $cookieStore.remove('globals');
           $http.defaults.headers.common.Authorization = 'Basic';
       }*/
+
+      function getUsersList(callback) {
+        var usersArray = [];
+        Object.keys(fakeUsers).every(function(key) {
+          usersArray.push(key);
+          return true;
+        });
+        callback({success: true, usersList: usersArray});
+      }
     }
 })();

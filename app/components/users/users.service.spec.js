@@ -60,4 +60,27 @@ describe('Users Service', function() {
       });
     });
   });
+
+  describe('List users function', function() {
+    it('Should return registered Users list', function() {
+      UsersService.getRegisteredUsers(function(response) {
+        expect(response.success).toBeTruthy();
+        expect(response.usersList).toContain('admin');
+        expect(response.usersList).toContain('guest');
+      });
+    });
+  });
+
+  describe('Register User function', function() {
+    it('Should create a new User', function() {
+    /*  UsersService.registerUser('newUser', 'newPassword', function(response) {
+        expect(response.success).toBeTruthy();
+        e
+      }); */
+    });
+
+    it('Should fail if the new user exists', function() {
+
+    });
+  });
 });
