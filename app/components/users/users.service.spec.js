@@ -73,10 +73,15 @@ describe('Users Service', function() {
 
   describe('Register User function', function() {
     it('Should create a new User', function() {
-    /*  UsersService.registerUser('newUser', 'newPassword', function(response) {
-        expect(response.success).toBeTruthy();
-        e
-      }); */
+      UsersService.getRegisteredUsers(function(response) {
+        expect(response.usersList).not.toContain('newUser');
+        UsersService.registerUser('newUser', 'newPassword', function(response) {
+          expect(response.success).toBeTruthy();
+          UsersService.getRegisteredUsers(function(response) {
+            expect(response.usersList).toContain('newUser');
+          });
+        });
+      });
     });
 
     it('Should fail if the new user exists', function() {

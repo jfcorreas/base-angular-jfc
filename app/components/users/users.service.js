@@ -40,7 +40,8 @@
         currentUser: authenticatedUser,
         doLogin: login,
         doLogout: logout,
-        getRegisteredUsers: getUsersList
+        getRegisteredUsers: getUsersList,
+        registerUser: addNewUser
       };
       return service;
 
@@ -115,6 +116,11 @@
           return true;
         });
         callback({success: true, usersList: usersArray});
+      }
+
+      function addNewUser(username, password, callback) {
+        fakeUsers[username] = { password: password, userRoles: [USER_ROLES.guest]};
+        callback({success: true});
       }
     }
 })();
