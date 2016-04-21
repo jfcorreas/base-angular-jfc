@@ -66,29 +66,6 @@
           callback({ success: false, message: "Error trying to logout" });
         }
       }
-
-      function fakeValidCredentials(username, password) {
-
-        var areValidCredentials = false;
-        Object.keys(fakeUsers).some(function(key) {
-          if (key === username) {
-            if (fakeUsers[key].password === password) {
-              areValidCredentials = true;
-            }
-            return true;
-          }
-        });
-        return areValidCredentials;
-      }
-
-      function fakeCleanCredentials() {
-        // TODO send logout signal to the server
-        authentication = {
-          isLogged : false,
-          username : ''
-        };
-        return true;
-      }
     /*  function SetCredentials(username, password) {
           var authdata = Base64.encode(username + ':' + password);
 
@@ -119,8 +96,47 @@
       }
 
       function addNewUser(username, password, callback) {
-        fakeUsers[username] = { password: password, userRoles: [USER_ROLES.guest]};
-        callback({success: true});
+        if (fakeUserExists(username)) {
+          callback({success: false, message: username + ' username already exists'});
+        } else {
+          fakeUsers[username] = { password: password, userRoles: [USER_ROLES.guest]};
+          callback({success: true});
+        }
       }
+
+
+    function fakeValidCredentials(username, password) {
+
+      var areValidCredentials = false;
+      Object.keys(fakeUsers).some(function(key) {
+        if (key === username) {
+          if (fakeUsers[key].password === password) {
+            areValidCredentials = true;
+          }
+          return true;
+        }
+      });
+      return areValidCredentials;
     }
+
+    function fakeCleanCredentials() {
+      // TODO send logout signal to the server
+      authentication = {
+        isLogged : false,
+        username : ''
+      };
+      return true;
+    }
+
+    function fakeUserExists(username) {
+      var userExists = false;
+      Object.keys(fakeUsers).some(function(key) {
+        if (key === username) {
+          userExists = true;
+          return true;
+        }
+      });
+      return userExists;
+    }
+  }
 })();

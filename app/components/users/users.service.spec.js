@@ -85,7 +85,13 @@ describe('Users Service', function() {
     });
 
     it('Should fail if the new user exists', function() {
-
+      UsersService.getRegisteredUsers(function(response) {
+        expect(response.usersList).toContain('guest');
+        UsersService.registerUser('guest', 'guestPassword', function(response) {
+          expect(response.success).toBeFalsy();
+          expect(response.message).toEqual('guest username already exists');
+        });
+      });
     });
   });
 });
