@@ -94,4 +94,25 @@ describe('Users Service', function() {
       });
     });
   });
+
+  describe('Remove User function', function() {
+    it('Should remove an existent User', function() {
+      UsersService.getRegisteredUsers(function(response) {
+        expect(response.usersList).toContain('guest');
+        UsersService.removeUser('guest', function(response) {
+          expect(response.success).toBeTruthy();
+          UsersService.getRegisteredUsers(function(response) {
+            expect(response.usersList).not.toContain('guest');
+          });
+        });
+      });
+    });
+
+    it('Should fail if the user not exists', function() {
+      UsersService.removeUser('thisUserNotExists', function(response) {
+        expect(response.success).toBeFalsy();
+        expect(response.message).toEqual('thisUserNotExists not exists');
+      });
+    });
+  });
 });

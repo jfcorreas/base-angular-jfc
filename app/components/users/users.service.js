@@ -41,7 +41,8 @@
         doLogin: login,
         doLogout: logout,
         getRegisteredUsers: getUsersList,
-        registerUser: addNewUser
+        registerUser: addNewUser,
+        removeUser: removeUser
       };
       return service;
 
@@ -86,24 +87,32 @@
           $http.defaults.headers.common.Authorization = 'Basic';
       }*/
 
-      function getUsersList(callback) {
-        var usersArray = [];
-        Object.keys(fakeUsers).every(function(key) {
-          usersArray.push(key);
-          return true;
-        });
-        callback({success: true, usersList: usersArray});
-      }
+    function getUsersList(callback) {
+      var usersArray = [];
+      Object.keys(fakeUsers).every(function(key) {
+        usersArray.push(key);
+        return true;
+      });
+      callback({success: true, usersList: usersArray});
+    }
 
-      function addNewUser(username, password, callback) {
-        if (fakeUserExists(username)) {
-          callback({success: false, message: username + ' username already exists'});
-        } else {
-          fakeUsers[username] = { password: password, userRoles: [USER_ROLES.guest]};
-          callback({success: true});
-        }
+    function addNewUser(username, password, callback) {
+      if (fakeUserExists(username)) {
+        callback({success: false, message: username + ' username already exists'});
+      } else {
+        fakeUsers[username] = { password: password, userRoles: [USER_ROLES.guest]};
+        callback({success: true});
       }
+    }
 
+    function removeUser(username, callback) {
+      if (fakeUserExists(username)) {
+        delete fakeUsers[username];
+        callback({success: true});
+      } else {
+        callback({success: false, message: username + ' not exists'});
+      }
+    }
 
     function fakeValidCredentials(username, password) {
 
