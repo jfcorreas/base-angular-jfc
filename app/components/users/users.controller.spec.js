@@ -73,4 +73,25 @@ describe('Users Controller', function () {
       expect(usersController.loginPassword).toBe('');
     });
   });
+
+  describe('createUser function', function() {
+    it('Should provide registerUser function, call UsersService.createUser and return success message', function() {
+      spyOn(usersService,'createUser').and.callThrough();
+      usersController.newUser = 'newUser';
+      usersController.newPassword = 'newPassword';
+      usersController.createUser();
+      expect(usersService.createUser).toHaveBeenCalledWith('newUser', 'newPassword',jasmine.any(Function));
+      expect(usersController.successMessage).toBe('newUser has been created successfully');
+      expect(usersController.errorMessage).toBe('');
+    });
+    it('Should fail if the user already exists', function() {
+      spyOn(usersService,'createUser').and.callThrough();
+      usersController.newUser = 'guest';
+      usersController.newPassword = 'guestPassword';
+      usersController.createUser();
+      expect(usersService.createUser).toHaveBeenCalledWith('guest', 'guestPassword',jasmine.any(Function));
+      expect(usersController.successMessage).toBe('');
+      expect(usersController.errorMessage).toBe('Error: guest user already exists');
+    });
+  });
 });

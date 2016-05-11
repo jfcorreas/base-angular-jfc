@@ -1,0 +1,8 @@
+<div>
+  <form name="userCreateForm" class"verticalForm" ng-submit="users.doLogin()">
+    <input name="username" ng-model="users.loginUsername" placeholder="{{'userLogin.username' | translate}}" required>
+    <input name="password" type="password" ng-model="users.loginPassword" placeholder="{{'userLogin.password' | translate}}" required>
+    <button type="submit" translate>{{"userLogin.login"}}</button>
+  </form>
+  <span class="error" ng-show="users.errorMessage">{{"userLogin.loginError" | translate}}</span>
+</div>

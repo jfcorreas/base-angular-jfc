@@ -41,7 +41,7 @@
         doLogin: login,
         doLogout: logout,
         getRegisteredUsers: getUsersList,
-        registerUser: addNewUser,
+        createUser: addNewUser,
         removeUser: removeUser
       };
       return service;

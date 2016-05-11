@@ -71,11 +71,11 @@ describe('Users Service', function() {
     });
   });
 
-  describe('Register User function', function() {
+  describe('Create User function', function() {
     it('Should create a new User', function() {
       UsersService.getRegisteredUsers(function(response) {
         expect(response.usersList).not.toContain('newUser');
-        UsersService.registerUser('newUser', 'newPassword', function(response) {
+        UsersService.createUser('newUser', 'newPassword', function(response) {
           expect(response.success).toBeTruthy();
           UsersService.getRegisteredUsers(function(response) {
             expect(response.usersList).toContain('newUser');
@@ -87,7 +87,7 @@ describe('Users Service', function() {
     it('Should fail if the new user exists', function() {
       UsersService.getRegisteredUsers(function(response) {
         expect(response.usersList).toContain('guest');
-        UsersService.registerUser('guest', 'guestPassword', function(response) {
+        UsersService.createUser('guest', 'guestPassword', function(response) {
           expect(response.success).toBeFalsy();
           expect(response.message).toEqual('guest username already exists');
         });
