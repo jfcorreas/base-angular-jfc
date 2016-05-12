@@ -20,8 +20,10 @@ describe('Users Controller', function () {
     expect(usersController.currentUser.isLogged).toBeDefined();
   });
 
-  it('Should provide error messages', function() {
-    expect(usersController.errorMessage).toBeDefined();
+  it('Should initialize message triggers', function() {
+    expect(usersController.loginError).toBeFalsy();
+    expect(usersController.createUserSuccess).toBeFalsy();
+    expect(usersController.createUserError).toBeFalsy();
   });
 
   describe('doLogin function', function() {
@@ -41,7 +43,7 @@ describe('Users Controller', function () {
       expect(usersController.currentUser.isLogged).toBeTruthy();
     });
 
-    it('doLogin function should show message on invalid login', function() {
+    it('doLogin function should throw error message on invalid login', function() {
       spyOn(usersService,'doLogin').and.callThrough();
       usersController.loginUsername = 'noUser';
       usersController.loginPassword = 'badPassword';
@@ -49,7 +51,7 @@ describe('Users Controller', function () {
       expect(usersService.doLogin).toHaveBeenCalledWith('noUser', 'badPassword', jasmine.any(Function));
       expect(usersController.currentUser.username).toBe('');
       expect(usersController.currentUser.isLogged).toBeFalsy();
-      expect(usersController.errorMessage).toBe('Username or password is incorrect');
+      expect(usersController.loginError).toBeTruthy();
     });
   });
 
@@ -81,8 +83,8 @@ describe('Users Controller', function () {
       usersController.newPassword = 'newPassword';
       usersController.createUser();
       expect(usersService.createUser).toHaveBeenCalledWith('newUser', 'newPassword',jasmine.any(Function));
-      expect(usersController.successMessage).toBe('newUser has been created successfully');
-      expect(usersController.errorMessage).toBe('');
+      expect(usersController.createUserSuccess).toBeTruthy();
+      expect(usersController.createUserError).toBeFalsy();
     });
     it('Should fail if the user already exists', function() {
       spyOn(usersService,'createUser').and.callThrough();
@@ -90,8 +92,8 @@ describe('Users Controller', function () {
       usersController.newPassword = 'guestPassword';
       usersController.createUser();
       expect(usersService.createUser).toHaveBeenCalledWith('guest', 'guestPassword',jasmine.any(Function));
-      expect(usersController.successMessage).toBe('');
-      expect(usersController.errorMessage).toBe('Error: guest user already exists');
+      expect(usersController.createUserSuccess).toBeFalsy();
+      expect(usersController.createUserError).toBeTruthy();
     });
   });
 });

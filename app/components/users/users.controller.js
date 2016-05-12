@@ -14,10 +14,11 @@
         vm.currentUser = UsersService.currentUser();
         vm.loginUsername = '';
         vm.loginPassword = '';
-        vm.successMessage = '';
-        vm.errorMessage = '';
+        vm.loginError = false;
         vm.newUsername = '';
         vm.newPassword = '';
+        vm.createUserSuccess = false;
+        vm.createUserError = false;
         vm.doLogin = doLogin;
         vm.doLogout = doLogout;
         vm.createUser = createUser;
@@ -26,9 +27,9 @@
           UsersService.doLogin(vm.loginUsername,vm.loginPassword, function(response){
             if (response.success) {
               vm.currentUser = UsersService.currentUser();
-              vm.errorMessage = '';
+              vm.loginError = false;
             } else {
-              vm.errorMessage = response.message;
+              vm.loginError = true;
             }
           });
         }
@@ -44,11 +45,11 @@
         function createUser(){
           UsersService.createUser(vm.newUser, vm.newPassword, function(response) {
             if (response.success) {
-              vm.successMessage = vm.newUser + ' has been created successfully';
-              vm.errorMessage = '';
+              vm.createUserSuccess = true;
+              vm.createUserError = false;
             } else {
-              vm.successMessage = '';
-              vm.errorMessage = 'Error: ' + vm.newUser + ' user already exists';
+              vm.createUserSuccess = false;
+              vm.createUserError = true;
             }
           });
         }
