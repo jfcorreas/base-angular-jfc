@@ -79,7 +79,7 @@ describe('Users Controller', function () {
   describe('createUser function', function() {
     it('Should provide registerUser function, call UsersService.createUser and return success message', function() {
       spyOn(usersService,'createUser').and.callThrough();
-      usersController.newUser = 'newUser';
+      usersController.newUsername = 'newUser';
       usersController.newPassword = 'newPassword';
       usersController.createUser();
       expect(usersService.createUser).toHaveBeenCalledWith('newUser', 'newPassword',jasmine.any(Function));
@@ -88,7 +88,7 @@ describe('Users Controller', function () {
     });
     it('Should fail if the user already exists', function() {
       spyOn(usersService,'createUser').and.callThrough();
-      usersController.newUser = 'guest';
+      usersController.newUsername = 'guest';
       usersController.newPassword = 'guestPassword';
       usersController.createUser();
       expect(usersService.createUser).toHaveBeenCalledWith('guest', 'guestPassword',jasmine.any(Function));

@@ -6,9 +6,9 @@
 
     angular
         .module('baseAngular.users')
-        .controller('UsersController', ['UsersService', '$window', UsersController]);
+        .controller('UsersController', ['UsersService', '$window', '$location', UsersController]);
 
-    function UsersController(UsersService, $window) {
+    function UsersController(UsersService, $window, $location) {
         var vm = this;
 
         vm.currentUser = UsersService.currentUser();
@@ -22,6 +22,7 @@
         vm.doLogin = doLogin;
         vm.doLogout = doLogout;
         vm.createUser = createUser;
+        vm.goToRegisterView = goToRegisterView;
 
         function doLogin() {
           UsersService.doLogin(vm.loginUsername,vm.loginPassword, function(response){
@@ -43,7 +44,7 @@
         }
 
         function createUser(){
-          UsersService.createUser(vm.newUser, vm.newPassword, function(response) {
+          UsersService.createUser(vm.newUsername, vm.newPassword, function(response) {
             if (response.success) {
               vm.createUserSuccess = true;
               vm.createUserError = false;
@@ -52,6 +53,10 @@
               vm.createUserError = true;
             }
           });
+        }
+
+        function goToRegisterView() {
+          $location.path('/register');
         }
     }
 })();

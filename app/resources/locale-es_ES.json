@@ -7,5 +7,9 @@
   "userLogin.password": "Password",
   "userLogin.login": "Entrar",
   "userLogin.logout": "Cerrar Sesión",
-  "userLogin.loginError": "Usuario o password incorrecto"
+  "userLogin.loginError": "Usuario o password incorrecto",
+  "userLogin.registerButton": "Registrar",
+  "userCreate.registerButton": "Crear Usuario",
+  "userCreate.userAlreadyExists": "El usuario _{{username}}_ ya existe en el sistema",
+  "userCreate.userCreateSuccess": "{{username}} registrado correctamente"  
 }

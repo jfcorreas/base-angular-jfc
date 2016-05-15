@@ -26,6 +26,11 @@
                   .when('/', {
                       templateUrl : 'app/components/home/main.view.html',
                       controller  : 'MainController'
+                  })
+                  // route for the register user page
+                  .when('/register', {
+                      templateUrl : 'app/components/users/userCreate.view.html',
+                      controller  : 'UsersController'
                   });
             }]);
 })();

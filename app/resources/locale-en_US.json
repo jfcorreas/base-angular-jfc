@@ -7,5 +7,9 @@
   "userLogin.password": "Password",
   "userLogin.login": "Log In",
   "userLogin.logout": "Log Out",
-  "userLogin.loginError": "Invalid user or password"
+  "userLogin.loginError": "Invalid user or password",
+  "userLogin.registerButton": "Register",
+  "userCreate.registerButton": "Register",
+  "userCreate.userAlreadyExists": "The username _{{username}}_ already exists",
+  "userCreate.userCreateSuccess": "User {{username}} has been created successfully"
 }

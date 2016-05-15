@@ -1,8 +1,13 @@
 <div>
-  <form name="userCreateForm" class"verticalForm" ng-submit="users.doLogin()">
-    <input name="username" ng-model="users.loginUsername" placeholder="{{'userLogin.username' | translate}}" required>
-    <input name="password" type="password" ng-model="users.loginPassword" placeholder="{{'userLogin.password' | translate}}" required>
-    <button type="submit" translate>{{"userLogin.login"}}</button>
+  <h2>FORMULARIO DE CREACION DE USUARIO</h2>
+  <form name="userCreateForm" class"verticalForm" ng-submit="users.createUser()">
+    <input name="username" ng-model="users.newUsername" placeholder="{{'userLogin.username' | translate}}" required>
+    <input name="password" type="password" ng-model="users.newPassword" placeholder="{{'userLogin.password' | translate}}" required>
+    <button type="submit" translate>{{"userCreate.registerButton"}}</button>
   </form>
-  <span class="error" ng-show="users.errorMessage">{{"userLogin.loginError" | translate}}</span>
+  <span class="error" ng-show="users.createUserError"
+        translate="userCreate.userAlreadyExists" translate-value-username="{{users.newUsername}}"></span>
+  <span class="success" ng-show="users.createUserSuccess"
+        translate="userCreate.userCreateSuccess" translate-value-username="{{users.newUsername}}"></span>
+
 </div>
